@@ -6,5 +6,4 @@ with open('First.html','r') as html_file:
     for course in course_cards:
         course_name = course.h5.text
         course_price = course.a.text.split()[-1]
-        print(course_name)
-        print(course_price) 
+        print(f'{course_name} costs {course_price}') 
