@@ -1,0 +1,46 @@
+from bs4 import BeautifulSoup
+import requests
+#Joe Biden
+page = requests.get("https://en.wikipedia.org/wiki/Joe_Biden")
+soup = BeautifulSoup(page.content, 'html.parser')
+object = soup.find(id="content")
+items = object.find_all(class_="infobox vcard")
+final = items[0]
+print(final.prettify())
+#Dick Cheney 
+page = requests.get("https://en.wikipedia.org/wiki/Dick_Cheney")
+soup = BeautifulSoup(page.content, 'html.parser')
+object = soup.find(id="content")
+items = object.find_all(class_="infobox vcard")
+final = items[0]
+print(final.prettify())
+#Al Gore
+page = requests.get("https://en.wikipedia.org/wiki/Al_Gore")
+soup = BeautifulSoup(page.content, 'html.parser')
+object = soup.find(id="content")
+items = object.find_all(class_="infobox vcard")
+final = items[0]
+print(final.prettify())
+#Kamala Harris 
+page = requests.get("https://en.wikipedia.org/wiki/Kamala_Harris")
+soup = BeautifulSoup(page.content, 'html.parser')
+object = soup.find(id="content")
+items = object.find_all(class_="infobox vcard")
+final = items[0]
+print(final.prettify())
+#Mike Pence
+page = requests.get("https://en.wikipedia.org/wiki/Mike_Pence")
+soup = BeautifulSoup(page.content, 'html.parser')
+object = soup.find(id="content")
+items = object.find_all(class_="infobox vcard")
+final = items[0]
+print(final.prettify())
+#conversion to .csv
+import pandas as pd
+nme = ["Al Gore", "Dick Cheney", "Joe Biden", "Mike Pence","Kamala Harris"] 
+prec = ["Dan Quayle", "Al Gore", "Dick Cheney", "Joe Biden","Mike Pence"] 
+succ = ["Dick Cheney", "Joe Biden", "Mike Pence", "Kamala Harris","N.A"] 
+prty=["Democrat","Republican","Democrat","Republican","Democrat"]
+dict = {'Name of Vice President ': nme, 'Preceded By': prec, 'Succeeded By': succ, 'Political Party':prty}        
+df = pd.DataFrame(dict) 
+df.to_csv('21stCenturyUSVicePresidents.csv') 
