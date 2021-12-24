@@ -20,10 +20,10 @@ politician_bfullname = politician_card.find('div' , class_='nickname').text
 politician_pob = politician_card.findAll('td', class_='infobox-data')[3].a.text
 #print(f'politician place of birth: {politician_pob}')
 politician_party = politician_card.findAll('td', class_='infobox-data')[4].a.text
-print(f'politician party: {politician_party}')
-Headers = ['politician name','politician date of birth','politician birth fullname']
+#print(f'politician party: {politician_party}')
+Headers = ['politician name','politician date of birth','politician birth fullname','politician place of birth','politician party']
 
-Categories.extend([politician_name, politician_dob, politician_bfullname ])
+Categories.extend([politician_name, politician_dob, politician_bfullname,politician_pob,politician_party])
 
 Data.append(Categories)
 df =pd.DataFrame(Data, columns = Headers)
