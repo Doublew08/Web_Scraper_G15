@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
+#import pandas as pd
 
 Categories = []
 Data = []
@@ -18,7 +18,7 @@ politician_dob = politician_card.find('span', class_='bday').text
 politician_bfullname = politician_card.find('div' , class_='nickname').text
 #print(f'politician birth fullname: {politician_bfullname}')
 politician_pob = politician_card.findAll('td', class_='infobox-data')[3].a.text
-#print(f'politician place of birth: {politician_pob}')
+print(f'politician place of birth: {politician_pob}')
 politician_party = politician_card.findAll('td', class_='infobox-data')[4].a.text
 #print(f'politician party: {politician_party}')
 Headers = ['politician name','politician date of birth','politician birth fullname','politician place of birth','politician party']
@@ -26,5 +26,5 @@ Headers = ['politician name','politician date of birth','politician birth fullna
 Categories.extend([politician_name, politician_dob, politician_bfullname,politician_pob,politician_party])
 
 Data.append(Categories)
-df =pd.DataFrame(Data, columns = Headers)
-df.to_csv('output.csv')
+#df =pd.DataFrame(Data, columns = Headers)
+#df.to_csv('output.csv')
