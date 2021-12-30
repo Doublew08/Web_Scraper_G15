@@ -1,3 +1,6 @@
+
+#NOTE: In the following code, I couldn't figure out how to set up a master function that scrapes all the links from the given page
+
 from bs4 import BeautifulSoup
 import requests
 #Joe Biden
