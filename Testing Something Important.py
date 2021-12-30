@@ -10,7 +10,7 @@ for div in soup.find_all('div' , class_='mw-category-group'):
          for atag in litag.find_all('a' , href = True):
              print(f'{atag.text} :https://en.wikipedia.org/'+atag['href'])
              responser = requests.get('https://en.wikipedia.org/'+atag['href'])
-             document = BeautifulSoup(responser, 'html.parser')
+             document = BeautifulSoup(responser.text, 'lxml')
              politician_card = document.find('table', class_='infobox vcard')
              politician_name = politician_card.find('div', class_='fn').text
              politician_dob = politician_card.find('span', class_='bday').text
