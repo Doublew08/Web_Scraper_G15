@@ -15,13 +15,13 @@ for div in soup.find_all('div' , class_='mw-category-group'):
              politician_name = politician_card.find('div', class_='fn').text
              politician_dob = politician_card.find('span', class_='bday').text
              politician_bfullname = politician_card.find('div' , class_='nickname').text
-             politician_pob = politician_card.findAll('td', class_='infobox-data')[3].a.text
-             politician_party = politician_card.findAll('td', class_='infobox-data')[4].a.text
+             #politician_pob = politician_card.findAll('td', class_='infobox-data')[3].a.text
+             #politician_party = politician_card.findAll('td', class_='infobox-data')[4].a.text
              print(f'politician name: {politician_name}')
              print(f'politician date of birth: {politician_dob}')
              print(f'politician birth fullname: {politician_bfullname}')
-             print(f'politician place of birth: {politician_pob}')
-             print(f'politician party: {politician_party}')
+             #print(f'politician place of birth: {politician_pob}')
+             #print(f'politician party: {politician_party}')
 
 
 
