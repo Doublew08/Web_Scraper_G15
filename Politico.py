@@ -5,7 +5,7 @@ response = requests.get("https://www.politico.com/news/magazine/2021/01/18/trump
 soup = BeautifulSoup(response.text, 'html.parser')
 Achievements = soup.find_all('div', attrs={'class' : 'story-text'})
 Moves = soup.find_all('div', attrs={'class' : 'story-text'}) 
-
+paragraphs = []
 for Achievement in Achievements:
     for pStory in Achievement.find_all('p' , attrs={'class': 'story-text__paragraph'}):
         if pStory.find('span') is not None:
@@ -19,8 +19,17 @@ for div in soup.find_all('div', class_='story-text'):
     #print(div)
     for p in div.find_all('p', attrs={'class': 'story-text__paragraph'}):
       #  if p.find('The move') is not None:
-          pimpact = p.split("The impact:")
-          print(pimpact.text)
+          #pimpact = p.split("The impact:")
+          
+          
+              
+              paragraphs.append(str(p.text))
+              
+              #print(type(x))
+              print(paragraphs)
+              content = [ paragraphs for paragraphs in content if not paragraphs.startswitch("The move")]
+              print[content]
+          #print(pimpact.text)
           
 
 #for p in soup.find_all('p' , style = font-family:'Jubilat', serif; font-weight:700; font-size:20px;:
