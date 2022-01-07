@@ -27,8 +27,14 @@ for div in soup.find_all('div', class_='story-text'):
               
               #print(type(x))
               print(paragraphs)
-              content = [ paragraphs for paragraphs in content if not paragraphs.startswitch("The move")]
-              print[content]
+              #paragraphs = [ x for x in paragraphs if not paragraphs.startswitch("The move")]
+              #filter(lambda x:x[0]!='The move:',paragraphs.split())
+              for x in paragraphs :
+                  if "The move:" not in x:
+                      paragraphs.remove(x)
+            
+#prints the move only                  
+print[paragraphs]
           #print(pimpact.text)
           
 
