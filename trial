@@ -1,0 +1,6 @@
+import requests
+from bs4 import BeautifulSoup
+ 
+page = requests.get('https://www.imdb.com/chart/top/') # Getting page HTML through request
+soup = BeautifulSoup(page.content, 'html.parser') # Parsing content using beautifulsoup
+ 
