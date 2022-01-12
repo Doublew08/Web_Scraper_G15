@@ -1,5 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
+#========Donald Trump============================
+
+
 #bbc
 url='https://www.bbc.com/news/world-us-canada-59703761'
 response = requests.get(url)
@@ -101,29 +104,158 @@ def sentiment_scores(article):
         print("Neutral")
 if __name__ == "__main__" :
  
-    print("\n1st Article (BBC) :")
+    print("\n1st Article (BBC) DT :")
     article = y.text
  
     # function calling
     sentiment_scores(article)
  
-    print("\n2nd Article (Daily Mail) :")
+    print("\n2nd Article (Daily Mail) DT:")
     article = b.text
     sentiment_scores(article)
  
-    print("\n3rd Article (The Independent) :")
+    print("\n3rd Article (The Independent) DT :")
     article = d.text
     sentiment_scores(article) 
 
-    print("\n4th Article (Huffington Post):")
+    print("\n4th Article (Huffington Post) DT :")
     article = f.text
     sentiment_scores(article) 
 
-    print("\n5th Article (The Sun) :")
+    print("\n5th Article (The Sun) DT :")
     article = h.text
     sentiment_scores(article) 
  
-    print("\6th Article (Daily Express) :")
+    print("\6th Article (Daily Express) DT :")
     article = j.text
     sentiment_scores(article) 
+
+#============Joe Biden===============
+#bbc
+wrl='https://www.bbc.com/news/world-us-canada-59787060'
+response = requests.get(wrl)
+
+soup = BeautifulSoup(response.text, 'html.parser')
+headlines1 = soup.find('body').find_all('h1')
+for x1 in headlines1:
+    print(x1.text.strip())
+soup = BeautifulSoup(response.text, 'html.parser')
+descs1 = soup.find('body').find_all('p')
+for y1 in descs1:
+    print(y1.text.strip())
+print("============NEXT ARTICLE=========")
+  
+#Daily Mail
+wrl1='https://www.dailymail.co.uk/news/article-10393911/Joe-Biden-calls-Kamala-President-Harris-slip-tongue-speech.html'
+response = requests.get(wrl1)
+soup = BeautifulSoup(response.text, 'html.parser')
+title1 = soup.find('body').find_all('h2')
+for a1 in title1:
+    print(a1.text.strip())
+soup = BeautifulSoup(response.text, 'html.parser')
+content1 = soup.find('body').find_all('p')
+for b1 in content1:
+    print(b1.text.strip())
+print("============NEXT ARTICLE=========")
+
+
+#The Independent
+url12=('https://www.independent.co.uk/news/world/americas/us-politics/biden-speech-georgia-filibuster-voting-b1991144.html')
+response = requests.get(url12)
+soup = BeautifulSoup(response.text, 'html.parser')
+title11 = soup.find('body').find_all('h1')
+for c1 in title11:
+    print(c1.text.strip())
+soup = BeautifulSoup(response.text, 'html.parser')
+content11 = soup.find('body').find_all('p')
+for d1 in content11:
+    print(d1.text.strip())
+print("============NEXT ARTICLE=========")
+
+#HuffPost
+url13=('https://www.huffpost.com/entry/biden-state-of-the-union-2022_n_61d87cfee4b0bcd2195ee408')
+response = requests.get(url13)
+soup = BeautifulSoup(response.text, 'html.parser')
+title12 = soup.find('body').find_all('h1')
+for e1 in title12:
+    print(e1.text.strip())
+soup = BeautifulSoup(response.text, 'html.parser')
+content12 = soup.find('body').find_all('p')
+for f1 in content12:
+    print(f1.text.strip())
+print("============NEXT ARTICLE=========")
+#The Sun 
+url14=('https://www.thesun.co.uk/news/17256159/joe-biden-putin-douglas-murray/')
+response = requests.get(url14)
+soup = BeautifulSoup(response.text, 'html.parser')
+title13 = soup.find('body').find_all('h1')
+for g1 in title13:
+    print(g1.text.strip())
+soup = BeautifulSoup(response.text, 'html.parser')
+content13 = soup.find('body').find_all('p')
+for h1 in content13:
+    print(h1.text.strip())
+print("============NEXT ARTICLE=========")
+
+#Daily Express
+url15=('https://www.express.co.uk/news/world/1548925/Joe-biden-news-inflation-us-highest-level-forty-years-president')
+response = requests.get(url15)
+soup = BeautifulSoup(response.text, 'html.parser')
+title14 = soup.find('body').find_all('h1')
+for i1 in title14:
+    print(i1.text.strip())
+soup = BeautifulSoup(response.text, 'html.parser')
+content13 = soup.find('body').find_all('p')
+for j1 in content13:
+    print(j1.text.strip())
+print("============END=========")
+
+ 
+def sentiment_scores(article2):
+    sid_obj = SentimentIntensityAnalyzer()
+    sentiment_dict2 = sid_obj.polarity_scores(article2)
+     
+    print("Overall sentiment dictionary is : ", sentiment_dict2)
+    print("article was rated as ", sentiment_dict2['neg']*100, "% Negative")
+    print("article was rated as ", sentiment_dict2['neu']*100, "% Neutral")
+    print("article was rated as ", sentiment_dict2['pos']*100, "% Positive")
+ 
+    print("article Overall Rated As", end = " ")
+    if sentiment_dict2['compound'] >= 0.05 :
+        print("Positive")
+ 
+    elif sentiment_dict2['compound'] <= - 0.05 :
+        print("Negative")
+ 
+    else :
+        print("Neutral")
+if __name__ == "__main__" :
+ 
+    print("\n1st Article (BBC) :")
+    article2 = y1.text
+ 
+    # function calling
+    sentiment_scores(article2)
+ 
+    print("\n2nd Article (Daily Mail) JB:")
+    article2 = b1.text
+    sentiment_scores(article2)
+ 
+    print("\n3rd Article (The Independent) JB:")
+    article2 = d1.text
+    sentiment_scores(article2) 
+
+    print("\n4th Article (Huffington Post) JB:")
+    article2 = f1.text
+    sentiment_scores(article2) 
+
+    print("\n5th Article (The Sun) JB:")
+    article2 = h1.text
+    sentiment_scores(article2) 
+ 
+    print("\6th Article (Daily Express) JB :")
+    article2 = j1.text
+    sentiment_scores(article2) 
+    
+    #NOTE: Let me know if more politicians are to be added.
 
