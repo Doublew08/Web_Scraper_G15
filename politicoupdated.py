@@ -1,6 +1,20 @@
 import requests
 import re
 from bs4 import BeautifulSoup
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+def sentiment_scores(sentence):
+    sid_obj = SentimentIntensityAnalyzer()
+    sentiment_dict = sid_obj.polarity_scores(sentence)
+    sentiment_dict = sid_obj.polarity_scores(sentence)
+    if sentiment_dict['compound'] >= 0.05 :
+        print("Positive")
+    elif sentiment_dict['compound'] <= - 0.05 :
+        print("Negative")
+    else :
+        print("Neutral")
+
+
+
 response = requests.get("https://www.politico.com/news/magazine/2021/01/18/trump-presidency-administration-biggest-impact-policy-analysis-451479")
 soup = BeautifulSoup(response.text, 'html.parser')
 Achievements = soup.find_all('div', attrs={'class' : 'story-text'})
@@ -109,4 +123,9 @@ name_dict = {
 df = pd.DataFrame(name_dict)
 print (df)
 df.to_csv('output.csv',header=True)
-
+print("The Move is:")
+sentiment_scores(paragraphs)
+print("The Impact is:")
+sentiment_scores(paragraphs2)
+print("The Upshot is:")
+sentiment_scores(paragraphs3)
