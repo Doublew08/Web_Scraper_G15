@@ -264,8 +264,7 @@ import matplotlib as plt
 fig, ax = plt.subplots(figsize = (12, 7))
 idx = ['BBC', 'Daily Mail', 'The Independent', 'HuffPost','The Sun', 'Daily Express']
 cols = list('Donald Trump','Joe Biden')
-  
+print(sentiment_scores(article))
 # following code excerpt doesn't work
-#df = pd.DataFrame([sentiment_dict(article1)], [sentiment_dict(article2)])
-#columns = cols, index = idx
+#df = pd.DataFrame([[sentiment_dict(article1)], [sentiment_dict(article2)]],columns = cols, index = idx)
 #sns.heatmap(df, cmap ='RdYlGn', linewidths = 0.30, annot = True)
