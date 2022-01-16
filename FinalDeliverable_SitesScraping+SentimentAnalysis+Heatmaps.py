@@ -128,7 +128,7 @@ if __name__ == "__main__":
     article = h.text
     sentiment_scores(article)
 
-    print("\6th Article (Daily Express) DT :")
+    print("\n6th Article (Daily Express) DT :")
     article = j.text
     sentiment_scores(article)
 print("Sentiment analysis done for Donald Trump")
@@ -258,7 +258,7 @@ if __name__ == "__main__":
     article2 = h1.text
     sentiment_scores(article2)
 
-    print("\6th Article (Daily Express) JB :")
+    print("\n6th Article (Daily Express) JB :")
     article2 = j1.text
     sentiment_scores(article2)
 print("SENTIMENT ANALYSIS DONE FOR JOE BIDEN")
