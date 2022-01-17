@@ -146,6 +146,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 descs1 = soup.find('body').find_all('p')
 for y1 in descs1:
     print(y1.text.strip())
+print("y1 after loop ", y1)
 print("============NEXT ARTICLE=========")
 
 # Daily Mail
@@ -235,6 +236,7 @@ def sentiment_scores(article2):
         print("Neutral")
 
 
+
 if __name__ == "__main__":
     print("\n1st Article (BBC) :")
     article2 = y1.text
@@ -262,17 +264,3 @@ if __name__ == "__main__":
     article2 = j1.text
     sentiment_scores(article2)
 print("SENTIMENT ANALYSIS DONE FOR JOE BIDEN")
-
-import pandas as pd
-import seaborn as sns
-import matplotlib as plt
-
-# please fix the code below
-
-fig, ax = plt.subplots(figsize=(12, 7))
-idx = ['BBC', 'Daily Mail', 'The Independent', 'HuffPost', 'The Sun', 'Daily Express']
-cols = list('Donald Trump', 'Joe Biden')
-print(sentiment_scores(article2))
-# following code excerpt doesn't work
-df = pd.DataFrame([[sentiment_scores(article)], [sentiment_scores(article2)]], columns=cols, index=idx)
-sns.heatmap(df, cmap='RdYlGn', linewidths=0.30, annot=True)
