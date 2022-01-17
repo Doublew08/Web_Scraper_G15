@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+#Donald Trump
 # bbc
 url = 'https://www.bbc.com/news/world-us-canada-59703761'
 response = requests.get(url)
